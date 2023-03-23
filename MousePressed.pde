@@ -1,8 +1,8 @@
 void mousePressed(){
   int event;
   for (int i = 0; i < myWidgets.size(); i++) {
-    Widget theWidget = (Widget)myWidgets.get(i);
-    event = myWidget.getEvent(mouseX, mouseY);
+    Widget myWi = (Widget)myWidgets.get(i);
+    event = myWi.getEvent(mouseX, mouseY);
    switch(event){
     case button1:
       current_query = query1;
