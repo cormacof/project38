@@ -1,0 +1,71 @@
+  ArrayList<TEXTBOX> textboxes = new ArrayList<TEXTBOX> ();
+  ArrayList<String> list = new ArrayList<>();
+  String stringidk;
+    TEXTBOX receiver;
+TEXTBOX receiver1;
+ String [] names = new String []{};
+
+setup{
+  d.forSortingByName = thisRow[4] + thisRow[5] + thisRow[6] + thisRow[9] +thisRow[10] +thisRow[11];
+  d.fullLine = flights[i];
+  d.Arrival = thisRow[4] + thisRow[5];
+  d.Depart = thisRow[9] +thisRow[10];
+  al.add(d);
+
+
+
+if(currentScreen==screen7){
+  text("Depart:",510,40); 
+  text("Arrival:",1010,40); 
+  int counet=20;
+ for (data ddd : al){
+    receiver.DRAW();
+    receiver1.DRAW();
+    if (ddd.Arrival.toLowerCase().contains(receiver.Text.toLowerCase()) && ddd.Depart.toLowerCase().contains(receiver1.Text.toLowerCase())){
+    text(ddd.fullLine,100,120+counet);
+    counet+=21; 
+  }
+  } 
+}
+
+
+void InitLayout (){
+  receiver = new TEXTBOX();
+  receiver.W=400;
+  receiver.H=55;
+  receiver.X=350;
+  receiver.Y=50;
+  
+  textboxes.add(receiver);
+  receiver1 = new TEXTBOX();
+  receiver1.W=400;
+  receiver1.H=55;
+
+  receiver1.X=850;
+  receiver1.Y=50;
+  
+  textboxes.add(receiver1);
+  
+  TEXTBOX message = new TEXTBOX();
+  //TEXTBOX message1 = new TEXTBOX();
+}
+
+void mousePressed(){
+  for(TEXTBOX t: textboxes){
+    t.PRESSED(mouseX, mouseY);
+  }
+
+case EVENT_TEXTBOX:
+  currentScreen = screen7;
+  for(TEXTBOX t: textboxes){
+    t.PRESSED(mouseX, mouseY);
+  }
+break;
+
+
+void keyPressed(){
+  for (TEXTBOX t : textboxes){
+    t.KEYPRESSED (key,keyCode);
+    keys.add(key);
+  }
+}
