@@ -1,0 +1,63 @@
+int r = 0; 
+int g = 0; 
+int b = 0; 
+int step = 1; 
+boolean nextPage = false;
+boolean textVisible = true; 
+
+void setup() {
+  size(700, 700); 
+  frameRate(60); 
+}
+
+void draw() {
+  
+  r += step;
+  g += step;
+  b += step;
+  
+  
+  if (r > 82) {
+    r = 0;
+  }
+  if (g > 255) {
+    g = 0;
+  }
+  if (b > 255) {
+    b = 0;
+  }
+  
+ 
+  background(r, g, b);
+  
+
+  if (textVisible) {
+    fill(255);
+    textSize(32);
+    textAlign(CENTER, CENTER);
+   text("Welcome to the Class Inquiry System", width/2, height/2);
+   textSize(20);
+  text("Please enter your origin, destination and departure date", width/2, height/2+50);
+  textSize(32);
+  }
+  
+  
+  if (mousePressed) {
+    nextPage = true;
+  }
+  
+  
+  if (nextPage) {
+    nextPage();
+  }
+}
+
+void nextPage() {
+  
+  textVisible = false;
+  background(0);
+  
+  // put next page code here
+  
+  
+}
