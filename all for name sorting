@@ -66,6 +66,5 @@ break;
 void keyPressed(){
   for (TEXTBOX t : textboxes){
     t.KEYPRESSED (key,keyCode);
-    keys.add(key);
   }
 }
